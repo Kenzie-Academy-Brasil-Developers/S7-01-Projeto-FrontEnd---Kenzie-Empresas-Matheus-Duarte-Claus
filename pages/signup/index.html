@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../../styles/signup/index.css" rel="stylesheet" type="text/css">
+    <title>Cadastro</title>
+</head>
+<body>
+    <header>
+        <div class="u-container">
+            <div class="c-logo">
+                <div class="c-logo__icon"></div>
+                <h2 class="c-logo_title">Kenzie Empresas</h2>
+            </div>
+            <button class="c-btn--headIcon u-btn--icon js-btn--head"></button>
+            <div class="c-btnsHead">
+                <button class="u-btn--white">Login</button>
+                <button class="u-btn--mainColor">Cadastro</button>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="u-container">
+            <form>
+                <h1>Cadastre-se</h1>
+                <input type="text" name="username" placeholder="Seu nome">
+                <input type="email" name="email" placeholder="Seu e-mail">
+                <input type="password" name="placeholder" placeholder="Sua senha">
+                <select name="choiceTarefa">
+                    <option value="" id="u-displayNone">Nível profissional</option>
+                    <option value="urgente">Urgente</option>
+
+                </select>
+                <button class="u-btn--mainColor">Cadastre-se</button>
+                <button class="u-btn--white">Retornar</button>
+            </form>
+        </div>
+    </main>
+    <script type="module" src="../../scripts/signup/index.js"></script>
+</body>
+</html>
