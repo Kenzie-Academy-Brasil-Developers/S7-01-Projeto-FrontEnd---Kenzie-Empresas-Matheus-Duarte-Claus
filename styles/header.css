@@ -1,0 +1,21 @@
+.c-head {
+    display: flex;
+    justify-content: space-between;
+}
+
+.c-logo {
+    display: flex;
+    gap: 15px;
+}
+
+.c-logo__icon {
+    background-color: var(--brand-color200);
+    width: 16px;
+    height: 16px;
+    border-radius: var(--radius-4);
+}
+
+.c-btnsHead {
+    display: flex;
+    gap: 11px;
+}

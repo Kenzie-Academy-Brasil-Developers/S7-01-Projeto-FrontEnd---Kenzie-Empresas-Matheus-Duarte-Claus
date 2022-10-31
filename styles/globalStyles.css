@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+:root {
+    --font-family-default: 'Poppins', sans-serif;
+    --grey100: #000000;
+    --grey200: #808080;
+    --grey300: #B3B3B3;
+    --grey400: #CCCCCC;
+    --grey500: #E6E6E6;
+    --grey600: #FFFFFF;
+
+    --brand-color100: #4200FF;
+    --brand-color200: #A180FF;
+
+    --alert-color: #CE4646;
+    --success-color: #4BA036;
+
+    --font-weight-1: 300; 
+    --font-weight-2: 400; 
+    --font-weight-3: 500; 
+    --font-weight-4: 600; 
+    --font-weight-5: 700; 
+    --font-weight-6: 800; 
+    --font-weight-7: 900; 
+
+    --font-size-1: 40px;
+    --font-size-2: 32px;
+    --font-size-3: 30px;
+    --font-size-4: 28px;
+    --font-size-5: 22px;
+    --font-size-6: 20px;
+    --font-size-7: 18px;
+    --font-size-8: 16px;
+    --font-size-9: 15px;
+
+    --line-height-1: 60px;
+    --line-height-2: 38px;
+    --line-height-3: 30px;
+    --line-height-4: 24px;
+    --line-height-5: 22px;
+    --line-height-6: 21px;
+    --line-height-7: 19px;
+    --line-height-8: 18px;
+
+    --padding--btn-1: 10px 27px;
+    --padding--btn-2: 6px 26px;
+
+    --radius-1: 10px;
+    --radius-2: 15px;
+    --radius-3: 255px;
+    --radius-4: 100%;
+
+    --border-default: 1px solid;
+}
+
+.u-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+body {
+    font-family: var(--font-family-default);
+}
