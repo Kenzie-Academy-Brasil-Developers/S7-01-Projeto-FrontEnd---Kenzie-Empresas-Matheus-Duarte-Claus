@@ -64,6 +64,10 @@
     display: none;
 }
 
+.u-textCenter {
+    text-align: center;
+}
+
 body {
     font-family: var(--font-family-default);
 }

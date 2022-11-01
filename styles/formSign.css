@@ -35,10 +35,6 @@ form {
     justify-content: center;
 }
 
-.u-textCenter {
-    text-align: center;
-}
-
 @media (min-width: 900px) {
     form {
         margin-top: 140px;

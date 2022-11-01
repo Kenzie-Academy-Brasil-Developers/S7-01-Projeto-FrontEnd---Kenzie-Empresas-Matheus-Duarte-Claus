@@ -12,7 +12,11 @@
     border: var(--border-default) var(--grey900);
 }
 
-h2 {
+.c-user__status--full > h2 {
     background-color: var(--brand-color100);
     height: 80px;
+}
+
+.c-btn-add {
+    width: max-content;
 }

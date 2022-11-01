@@ -1,18 +1,18 @@
-h1 {
+.c-user__description > h1 {
     font-weight: var(--font-weight-5);
     font-size: var(--font-size-3);
     line-height: var(--line-height-2);
     color: var(--grey100);
 }
 
-h2 {
+.c-user__status > h2 {
     font-weight: var(--font-weight-5);
     font-size: var(--font-size-1);
     line-height: var(--line-height-2);
     color: var(--grey100);
 }
 
-h3 {
+.c-user__data > h3 {
     font-weight: var(--font-weight-2);
     font-size: var(--font-size-5);
     line-height: var(--line-height-4);
@@ -24,4 +24,15 @@ h3 {
 
 .c-user__status--full > h2 {
     color: var(--grey800);
+}
+
+.c-department__title {
+    font-weight: var(--font-weight-5);
+    font-size: var(--font-size-3);
+    line-height: var(--line-height-2);
+    color: var(--grey100)
+}
+
+.c-users__head > h2 {
+    margin-bottom: 20px;
 }

@@ -14,3 +14,10 @@ main {
     gap: 150px;
 }
 
+.c-btn-add {
+    gap: 20px;
+}
+
+.c-departments__head {
+    margin-bottom: 20px;
+}
