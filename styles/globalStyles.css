@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
 
 :root {
     --font-family-default: 'Inter', sans-serif;
@@ -8,7 +8,8 @@
     --grey400: #CCCCCC;
     --grey500: #E6E6E6;
     --grey600: #F8F8F8;
-    --grey700: #FFFFFF;
+    --grey700: #FFFFFFF2;
+    --grey800: #FFFFFF;
 
     --brand-color100: #4200FF;
     --brand-color200: #A180FF;

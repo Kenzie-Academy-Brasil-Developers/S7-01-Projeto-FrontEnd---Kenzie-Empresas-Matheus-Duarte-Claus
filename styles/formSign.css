@@ -1,0 +1,48 @@
+main {
+    margin-top: 0;
+    border-top: var(--border-default) var(--grey500);
+    background-image: url('../assets/img_main.svg');
+    background-repeat: no-repeat;
+    width: 100vw;
+    height: 100%;
+    position: relative;
+    background-size: cover;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+h1 {
+    font-weight: var(--font-weight-5);
+    font-size: var(--font-size-1);
+    line-height: var(--line-height-1);
+    color: var(--grey100);
+}
+
+form {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding: 40px;
+    background-color: var(--grey700);
+    width: 90%;
+}
+
+.c-form {
+    display: flex;
+    justify-content: center;
+}
+
+.u-textCenter {
+    text-align: center;
+}
+
+@media (min-width: 900px) {
+    form {
+        margin-top: 140px;
+        width: 500px;
+        margin-bottom: 280px;
+    }
+}

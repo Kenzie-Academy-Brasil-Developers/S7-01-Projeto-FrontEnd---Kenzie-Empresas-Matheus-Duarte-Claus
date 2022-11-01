@@ -6,7 +6,7 @@ button {
 
 .u-btn--mainColor {
     background-color: var(--brand-color100);
-    color: var(--grey700);
+    color: var(--grey800);
     border: var(--border-default) var(--brand-color100);
 }
 
@@ -24,7 +24,7 @@ button {
 
 .u-btn--success {
     background-color: var(--success-color);
-    color: var(--grey700);
+    color: var(--grey800);
     border: var(--border-default) var(--success-color);
 }
 
