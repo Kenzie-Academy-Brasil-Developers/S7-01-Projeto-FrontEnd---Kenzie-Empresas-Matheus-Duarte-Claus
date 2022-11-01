@@ -1,0 +1,68 @@
+.u-list {
+    background-color: var(--grey600);
+    display: flex;
+    flex-wrap: wrap;
+    padding: 34px 56px;
+    justify-content: space-between;
+    gap: 10px;
+    height: 385px;
+    overflow-y: scroll;
+}
+
+.u-el {
+    background-color: var(--grey800);
+    padding: 18px 30px;
+    border-bottom: var(--border-default) var(--brand-color100);
+    margin-bottom: 28px;
+    width: 430px;
+}
+
+.u-name, .u-description {
+    margin-bottom: 10px;
+} 
+
+.u-company {
+    margin-bottom: 30px;
+}
+
+.u-company, .u-description {
+    font-weight: var(--font-weight-3);
+    font-size: var(--font-size-7);
+    line-height: var(--line-height-6);
+    color: var(--grey100);
+}
+
+.u-name {
+    font-weight: var(--font-weight-5);
+    font-size: var(--font-size-6);
+    line-height: var(--line-height-4);
+    color: var(--grey100);
+}
+
+.u-list__btns {
+   display: flex;
+   gap: 20px;
+   align-items: center;
+   justify-content: center;
+   margin-bottom: 20px;
+}
+
+.u-list__btns > button {
+    cursor: pointer;
+}
+
+.u-list::-webkit-scrollbar {
+    width: 10px;
+}
+
+.u-list::-webkit-scrollbar-thumb:not(:hover) {   
+    background-color: var(--brand-color100); 
+}
+
+.u-list::-webkit-scrollbar-thumb:hover {   
+    background-color: var(--brand-color200); 
+}
+
+.u-list::-webkit-scrollbar-thumb:window-inactive {
+    background: var(--grey400);
+}

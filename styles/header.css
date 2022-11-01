@@ -1,0 +1,53 @@
+.c-head {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.c-logo {
+    display: flex;
+    gap: 15px;
+    flex-direction: row;
+    align-items: center;
+}
+
+.c-logo__icon {
+    background-color: var(--brand-color200);
+    width: 16px;
+    height: 16px;
+    border-radius: var(--radius-4);
+    transform: translateY(-2px);
+}
+
+.c-btnsHead, .c-btnsHeadDesktop  {
+    display: none;
+    gap: 11px;
+    align-items: center;
+}
+
+.u-showMenu {
+    display: flex;
+}
+
+.c-btnsHead > button {
+    width: 100%;
+}
+
+header {
+    margin: 20px;
+}
+
+main {
+    margin-top: 43px;
+}
+
+@media(min-width:900px) {
+    .c-btn--headIcon {
+        display: none;
+    }
+
+    .c-btnsHeadDesktop {
+        display: flex;
+    }
+}

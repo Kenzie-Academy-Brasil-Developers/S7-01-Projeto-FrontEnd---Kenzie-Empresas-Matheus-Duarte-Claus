@@ -1,0 +1,23 @@
+body {
+    margin-bottom: 80px;
+}
+
+main {
+    gap: 44px;
+}
+
+.c-user__description {
+    gap: 10px;
+}
+
+.c-user__data {
+    gap: 150px;
+}
+
+.c-btn-add {
+    gap: 20px;
+}
+
+.c-departments__head {
+    margin-bottom: 20px;
+}
