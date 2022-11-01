@@ -6,7 +6,7 @@ button {
 
 .u-btn--mainColor {
     background-color: var(--brand-color100);
-    color: var(--grey500);
+    color: var(--grey700);
     border: var(--border-default) var(--brand-color100);
 }
 
@@ -24,19 +24,8 @@ button {
 
 .u-btn--success {
     background-color: var(--success-color);
-    color: var(--grey500);
+    color: var(--grey700);
     border: var(--border-default) var(--success-color);
-}
-
-.u-btn--whiteMainColorRadius {
-    background-color: transparent;
-    color: var(--brand-color100);
-    border: var(--border-default) var(--brand-color100);
-    border-radius: var(--radius-3);
-    padding: var(--padding--btn-2);
-    font-size: var(--font-size-8);
-    font-weight: var(--font-weight-2);
-    line-height: var(--line-height-7);
 }
 
 .u-btn--icon {

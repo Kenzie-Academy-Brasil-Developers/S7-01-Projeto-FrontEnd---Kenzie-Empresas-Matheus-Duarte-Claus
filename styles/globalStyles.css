@@ -1,13 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
 
 :root {
-    --font-family-default: 'Poppins', sans-serif;
+    --font-family-default: 'Inter', sans-serif;
     --grey100: #000000;
     --grey200: #808080;
     --grey300: #B3B3B3;
     --grey400: #CCCCCC;
     --grey500: #E6E6E6;
-    --grey600: #FFFFFF;
+    --grey600: #F8F8F8;
+    --grey700: #FFFFFF;
 
     --brand-color100: #4200FF;
     --brand-color200: #A180FF;
@@ -54,10 +55,19 @@
 }
 
 .u-container {
-    max-width: 1200px;
     margin: 0 auto;
+}
+
+.u-displayNone {
+    display: none;
 }
 
 body {
     font-family: var(--font-family-default);
+}
+
+@media(min-width:900px) {
+    .u-container {
+        max-width: 1200px;
+    }
 }
