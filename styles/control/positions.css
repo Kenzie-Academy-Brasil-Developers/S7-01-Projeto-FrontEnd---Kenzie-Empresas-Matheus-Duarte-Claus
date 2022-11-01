@@ -1,0 +1,30 @@
+main {
+    display: flex;
+    flex-direction: column;
+}
+
+h2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.c-user__info {
+    display: flex;
+    justify-content: space-between;
+}
+
+.c-user__description {
+    display: flex;
+    flex-direction: column;
+}
+
+.c-user__data {
+    display: flex;
+}
+
+.c-user__status--empty {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

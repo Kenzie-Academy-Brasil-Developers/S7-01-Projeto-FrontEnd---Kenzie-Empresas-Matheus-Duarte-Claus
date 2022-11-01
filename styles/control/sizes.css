@@ -1,0 +1,18 @@
+.c-user__info {
+    border: var(--border-default) var(--grey400);
+    padding: 20px 30px;
+}
+
+.c-user__status {
+    background-color: var(--grey600);
+}
+
+.c-user__status--empty {
+    height: 460px;
+    border: var(--border-default) var(--grey900);
+}
+
+h2 {
+    background-color: var(--brand-color100);
+    height: 80px;
+}

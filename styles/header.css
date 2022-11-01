@@ -26,12 +26,12 @@
     align-items: center;
 }
 
-.c-btnsHead > button {
-    width: 100%;
-}
-
 .u-showMenu {
     display: flex;
+}
+
+.c-btnsHead > button {
+    width: 100%;
 }
 
 header {

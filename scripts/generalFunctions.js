@@ -1,6 +1,6 @@
 function dropDownMenu() {
     let btnList = document.querySelector(".c-btnsHead");
-    btnList.classList.toggle(`u-showMenu`);
+    btnList.classList.toggle(`u-showMenu`);  
     document.getElementsByClassName("c-imgBtnHead")[0].classList.toggle('u-displayNone');
     document.getElementsByClassName("c-imgBtnHead")[1].classList.toggle('u-displayNone');
 }
@@ -12,7 +12,14 @@ function stopDefaultBehaviorForm() {
     btnList.forEach(btn => btn.addEventListener("click", (event) => event.preventDefault()));
 }
 
+function createElementWithClassList(tagName, classes) {
+    let element = document.createElement(tagName);
+    element.classList = classes;
+    return element;
+}
+
 export {
     dropDownMenu,
-    stopDefaultBehaviorForm
+    stopDefaultBehaviorForm,
+    createElementWithClassList
 }

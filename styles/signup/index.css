@@ -1,6 +1,6 @@
 @import url('https://matheuscdd.github.io/coding/CSS_reset.css');
-@import url('/styles/globalStyles.css');
-@import url('/styles/buttons.css');
-@import url('/styles/inputs.css');
-@import url('/styles/header.css');
-@import url('/styles/formSign.css');
+@import url('../../styles/globalStyles.css');
+@import url('../../styles/buttons.css');
+@import url('../../styles/inputs.css');
+@import url('../../styles/header.css');
+@import url('../../styles/formSign.css');

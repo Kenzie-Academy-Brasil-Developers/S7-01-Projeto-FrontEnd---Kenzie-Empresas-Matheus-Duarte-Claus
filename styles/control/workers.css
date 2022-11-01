@@ -1,0 +1,32 @@
+.c-listWorkers {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 60px;
+}
+
+.c-worker {
+    border: var(--border-default) var(--brand-color100);
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding: 12px 24px;
+    width: 270px;
+    margin-bottom: 13px;
+    margin-right: 20px;
+    margin-left: 20px;
+    background-color: var(--grey800);
+}
+
+.c-worker__name {
+    font-weight: var(--font-weight-5);
+    font-size: var(--font-size-9);
+    line-height: var(--line-height-8);
+    color: var(--grey100);
+}
+
+.c-worker__job {
+    font-weight: var(--font-weight-2);
+    font-size: var(--font-size-9);
+    line-height: var(--line-height-8);
+    color: var(--grey100);
+}
