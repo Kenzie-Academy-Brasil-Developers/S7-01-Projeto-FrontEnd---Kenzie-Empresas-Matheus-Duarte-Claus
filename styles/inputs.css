@@ -1,7 +1,17 @@
-input, input::placeholder, select {
+input, input::placeholder, select, textarea, textarea::placeholder {
     font-family: var(--font-family-default);
     font-weight: var(--font-weight-2);
     line-height: var(--line-height-6);
+    font-size: var(--font-size-7);
+}
+
+textarea {
+    resize: none;
+    color: var(--grey100);
+    border: var(--border-default) var(--grey300);
+    padding: 17px;
+    height: 110px;
+    outline: none;
 }
 
 input {
@@ -11,11 +21,11 @@ input {
     padding-left: 17px;
 }
 
-input::placeholder {
+input::placeholder, textarea::placeholder {
     color: var(--grey200);
 }
 
-#c-select__job {
+.u-select-default {
     border: var(--border-default) var(--grey300);
     padding-left: 17px;
     color: var(--grey200);
@@ -28,3 +38,4 @@ input::placeholder {
     border-radius: var(--radius-2);
     padding: 4px 33px;
 }
+

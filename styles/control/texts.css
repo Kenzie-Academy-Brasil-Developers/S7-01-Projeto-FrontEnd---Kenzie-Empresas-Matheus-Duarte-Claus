@@ -33,6 +33,12 @@
     color: var(--grey100)
 }
 
+.c-users__head > h2, .c-user__status > h2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .c-users__head > h2 {
     margin-bottom: 20px;
 }
