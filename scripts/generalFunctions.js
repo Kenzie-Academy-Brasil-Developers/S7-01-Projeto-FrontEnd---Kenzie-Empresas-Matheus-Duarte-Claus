@@ -18,8 +18,28 @@ function createElementWithClassList(tagName, classes) {
     return element;
 }
 
+function createOptionWithNameAndValue(str, value, name) {
+    let option = document.createElement('option');
+    option.innerText = str;
+    option.value = value;
+    option.name = name;
+    return option
+}
+
+function createInputWithAllYouNeed(definition, type, placeholder = "", name = "", id = "", classList = "") {
+    let element = document.createElement(definition);
+    if (definition === 'input') { element.type = type };
+    element.placeholder = placeholder;
+    element.name = name;
+    element.id = id;
+    element.classList = classList;
+    return element
+}   
+
 export {
     dropDownMenu,
     stopDefaultBehaviorForm,
-    createElementWithClassList
+    createElementWithClassList,
+    createOptionWithNameAndValue,
+    createInputWithAllYouNeed
 }

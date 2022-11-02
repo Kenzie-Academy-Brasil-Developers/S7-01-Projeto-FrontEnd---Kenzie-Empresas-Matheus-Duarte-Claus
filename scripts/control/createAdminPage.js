@@ -1,4 +1,4 @@
-import { createElementWithClassList } from "../generalFunctions.js";
+import { createElementWithClassList , createOptionWithNameAndValue } from "../generalFunctions.js";
 
 function createDepartment({ name , description, companies }) {
     let card = createElementWithClassList('li','c-department u-el');
@@ -111,14 +111,6 @@ function createCompanySelect(arrayCompanies) {
     });
 
     return selectCompany
-}
-
-function createOptionWithNameAndValue(str, value, name) {
-    let option = document.createElement('option');
-    option.innerText = str;
-    option.value = value;
-    option.name = name;
-    return option
 }
 
 function createHeadUsers() {
