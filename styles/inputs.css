@@ -32,7 +32,7 @@ input::placeholder, textarea::placeholder {
     height: 44.5px;
 }
 
-#c-select__company {
+.c-select__company {
     border: var(--border-default) var(--grey100);
     color: var(--grey100);
     border-radius: var(--radius-2);

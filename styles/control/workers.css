@@ -2,6 +2,8 @@
     display: flex;
     flex-wrap: wrap;
     padding: 60px;
+    height: 250px;
+    overflow-y: scroll;
 }
 
 .c-worker {
@@ -12,8 +14,8 @@
     padding: 12px 24px;
     width: 270px;
     margin-bottom: 13px;
-    margin-right: 20px;
-    margin-left: 20px;
+    margin-right: 15px;
+    margin-left: 15px;
     background-color: var(--grey800);
 }
 
@@ -29,4 +31,20 @@
     font-size: var(--font-size-9);
     line-height: var(--line-height-8);
     color: var(--grey100);
+}
+
+.c-listWorkers::-webkit-scrollbar {
+    width: 10px;
+}
+
+.c-listWorkers::-webkit-scrollbar-thumb:not(:hover) {   
+    background-color: var(--brand-color100); 
+}
+
+.c-listWorkers::-webkit-scrollbar-thumb:hover {   
+    background-color: var(--brand-color200); 
+}
+
+.c-listWorkers::-webkit-scrollbar-thumb:window-inactive {
+    background: var(--grey400);
 }
