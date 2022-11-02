@@ -102,7 +102,7 @@ function createHeaderDepartments(arrayCompanies) {
 function createCompanySelect(arrayCompanies) {
     let selectCompany = createElementWithClassList('select','c-select__company');
     let instructions = createElementWithClassList('option','u-displayNone');
-
+    instructions.value = "";
     instructions.innerText = `Selecionar empresa`;
     selectCompany.append(instructions);
     arrayCompanies.forEach(({name, uuid}) => {

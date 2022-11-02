@@ -36,7 +36,23 @@ function createInputWithAllYouNeed(definition, type, placeholder = "", name = ""
     return element
 }   
 
+function goToHome() {
+    window.location.href = `/pages/home`;
+}
+
+function goToLogin() {
+    window.location.href = `/pages/login`;
+}
+
+function goToSignUp() {
+    window.location.href = `/pages/signup`;
+}
+
+
 export {
+    goToSignUp,
+    goToLogin,
+    goToHome,
     dropDownMenu,
     stopDefaultBehaviorForm,
     createElementWithClassList,

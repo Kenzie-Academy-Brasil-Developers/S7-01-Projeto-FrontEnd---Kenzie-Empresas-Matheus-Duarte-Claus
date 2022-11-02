@@ -1,4 +1,6 @@
-import { dropDownMenu, stopDefaultBehaviorForm } from "../generalFunctions.js";
+import { dropDownMenu, stopDefaultBehaviorForm, goToLogin, goToHome } from "../generalFunctions.js";
 
-window.dropDownMenu = dropDownMenu;
 stopDefaultBehaviorForm();
+window.dropDownMenu = dropDownMenu;
+window.goToLogin = goToLogin;
+window.goToHome = goToHome;

@@ -19,13 +19,13 @@
                 <img src="../../assets/close.svg" class="c-imgBtnHead u-displayNone">
             </button>
             <div class="c-btnsHeadDesktop">
-                <button class="u-btn--whiteMainColor">Login</button>
-                <button class="u-btn--mainColor">Cadastro</button>
+                <button class="u-btn--whiteMainColor" onclick="goToLogin()">Login</button>
+                <button class="u-btn--mainColor" onclick="goToSignUp()">Cadastro</button>
             </div>
         </div>
         <div class="c-btnsHead">
-            <button class="u-btn--whiteMainColor">Login</button>
-            <button class="u-btn--mainColor">Cadastro</button>
+            <button class="u-btn--whiteMainColor" onclick="goToLogin()">Login</button>
+            <button class="u-btn--mainColor" onclick="goToSignUp()">Cadastro</button>
         </div>
     </header>
     <hr size="1" color="#E6E6E6">
@@ -34,58 +34,8 @@
             <figure>
                 <img src="../../assets/img_main.svg" class="c-img__main" alt="Homens conversando numa mesa sobre negócios">
             </figure>
-            <section class="c-list">
-                    <select class="c-list__head">
-                            <option value="" class="u-displayNone">Selecionar Setor</option>
-                            <option>Olá</option>
-                    </select>
-                <ul class="c-list__companies">
-                    <li class="c-company">
-                        <h3 class="c-company__name">Empresa Name</h3>
-                        <legend class="c-description">10 horas</legend>
-                        <div class="c-tag">Setor</div>
-                    </li>
-                    <li class="c-company">
-                        <h3 class="c-company__name">Empresa Name</h3>
-                        <legend class="c-description">10 horas</legend>
-                        <div class="c-tag">Setor</div>
-                    </li>
-                    <li class="c-company">
-                        <h3 class="c-company__name">Empresa Name</h3>
-                        <legend class="c-description">10 horas</legend>
-                        <div class="c-tag">Setor</div>
-                    </li>
-                    <li class="c-company">
-                        <h3 class="c-company__name">Empresa Name</h3>
-                        <legend class="c-description">10 horas</legend>
-                        <div class="c-tag">Setor</div>
-                    </li>
-                    <li class="c-company">
-                        <h3 class="c-company__name">Empresa Name</h3>
-                        <legend class="c-description">10 horas</legend>
-                        <div class="c-tag">Setor</div>
-                    </li>
-                    <li class="c-company">
-                        <h3 class="c-company__name">Empresa Name</h3>
-                        <legend class="c-description">10 horas</legend>
-                        <div class="c-tag">Setor</div>
-                    </li>
-                    <li class="c-company">
-                        <h3 class="c-company__name">Empresa Name</h3>
-                        <legend class="c-description">10 horas</legend>
-                        <div class="c-tag">Setor</div>
-                    </li>
-                    <li class="c-company">
-                        <h3 class="c-company__name">Empresa Name</h3>
-                        <legend class="c-description">10 horas</legend>
-                        <div class="c-tag">Setor</div>
-                    </li>
-                    <li class="c-company">
-                        <h3 class="c-company__name">Empresa Name</h3>
-                        <legend class="c-description">10 horas</legend>
-                        <div class="c-tag">Setor</div>
-                    </li>
-                </ul>
+            <section class="c-list js-list">
+                <ul class="c-list__companies js-list__companies"></ul>
             </section>
         </main>
     </div>

@@ -65,10 +65,46 @@ function createModalEdit(arrayModalities, arrayProfessionalLevel) {
 
 }
 
+function createModalDelDepartment(uuid, departmentName) {
+    let modal = createElementWithClassList('form','c-modal__long');
+    let btnCloseModal = createBtnCloseModal();
+    let contInfo = createElementWithClassList('div','c-modal__delete--info');
+    let title = createElementWithClassList('h2','c-modal__alert u-textCenter');
+    let btnConfirm = createElementWithClassList('button','c-btn-confirm u-btn--success');
+
+    title.innerText = `Realmente deseja deletar o Departamento ${departmentName} e demitir seus funcionários?`;
+    btnConfirm.innerText = `Confirmar`;
+    btnConfirm.onclick = () => console.log('clicou no confirm del departamento' + uuid);
+
+    contInfo.append(title, btnConfirm);
+    modal.append(btnCloseModal, contInfo);
+
+    return modal
+}
+
+
+function createModalDelUser(uuid, username) {
+    let modal = createElementWithClassList('form','c-modal__long');
+    let btnCloseModal = createBtnCloseModal();
+    let contInfo = createElementWithClassList('div','c-modal__delete--info');
+    let title = createElementWithClassList('h2','c-modal__alert u-textCenter');
+    let btnConfirm = createElementWithClassList('button','c-btn-confirm u-btn--success');
+
+    title.innerText = `Realmente deseja remover o usuário ${username}?`;
+    btnConfirm.innerText = `Confirmar`;
+    btnConfirm.onclick = () => console.log('clicou no confirm del usuário' + uuid);
+
+    contInfo.append(title, btnConfirm);
+    modal.append(btnCloseModal, contInfo);
+
+    return modal
+}
+
 
 function selectModalEditUser(array, orientation, str, value, name) {
     let select = createElementWithClassList('select','u-select-default');
     let instructions = createElementWithClassList('option','u-displayNone');
+    instructions.value = "";
     instructions.innerText = orientation; 
     select.append(instructions);
     array.forEach(el => {
@@ -80,9 +116,11 @@ function selectModalEditUser(array, orientation, str, value, name) {
 
 
 
+
 function selectModalMakeDepartment(arrayCompanies) {
     let select = createElementWithClassList('select','u-select-default');
     let instructions = createElementWithClassList('option','u-displayNone');
+    instructions.value = "";
     instructions.innerText = `Selecionar empresa`; 
     select.append(instructions);
     arrayCompanies.forEach(({name, uuid}) => {
@@ -103,9 +141,9 @@ function createBtnCloseModal() {
     return container
 }
 
-function insertModal(temp1, temp2) {
+function insertModal(temp, to) {
     let modalContainer = createElementWithClassList('div','c-modalWrapper');
-    let modal = createModalEdit(temp1, temp2);
+    let modal = createModalDelUser(temp, to); //Criar uma lógica pra cada tipo de modal
     modalContainer.append(modal)
     document.body.append(modalContainer)
     stopDefaultBehaviorForm();
