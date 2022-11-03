@@ -1,6 +1,8 @@
-import { insertHeader , insertUserStatus  } from "./createUserPages.js";
-import { insertDataOnPageAdmin } from "./createAdminPage.js";
-import { insertModal } from "./createModals.js";
+import { logout } from "./gotOutFunction.js";
+import { verifyLogin } from "./validationLogin.js";
 
+
+verifyLogin();
+window.logout = logout;
 
   

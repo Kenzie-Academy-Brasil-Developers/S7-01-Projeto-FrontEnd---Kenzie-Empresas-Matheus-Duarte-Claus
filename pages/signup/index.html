@@ -32,17 +32,23 @@
         <div class="u-container c-form">
             <form>
                 <h1>Cadastre-se</h1>
-                <input type="text" name="username" placeholder="Seu nome">
-                <input type="email" name="email" placeholder="Seu e-mail">
-                <input type="password" name="placeholder" placeholder="Sua senha">
-                <select name="profissional_level" class="u-select-default">
+                <input type="text" name="username" placeholder="Seu nome" class="js-user__data">
+                <input type="email" name="email" placeholder="Seu e-mail" class="js-user__data">
+                <input type="password" name="password" placeholder="Sua senha" class="js-user__data"> 
+                <select name="professional_level" class="u-select-default js-user__data">
                     <option value="" class="u-displayNone">Nível profissional</option>
-                    <option value="estágio" name="profissional_level">Estágio</option>
-                    <option value="júnior" name="profissional_level">Júnior</option>
-                    <option value="pleno" name="profissional_level">Pleno</option>
-                    <option value="sênior" name="profissional_level">Sênior</option>
+                    <option value="estágio">Estágio</option>
+                    <option value="júnior">Júnior</option>
+                    <option value="pleno">Pleno</option>
+                    <option value="sênior">Sênior</option>
                 </select>
-                <button class="u-btn--mainColor">Cadastre-se</button>
+                <select name="kind_of_work" class="u-select-default js-user__data">
+                    <option value="" class="u-displayNone">Modalidade de trabalho</option>
+                    <option value="presencial">Presencial</option>
+                    <option value="hibrido">Híbrido</option>
+                    <option value="home office">Home office</option>
+                </select>
+                <button class="u-btn--mainColor" onclick="sendSingUpUserTo()">Cadastre-se</button>
                 <button class="u-btn--whiteMainColor" onclick="goToLogin()">Retornar</button>
             </form>
         </div>

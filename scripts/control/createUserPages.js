@@ -1,4 +1,5 @@
 import { createElementWithClassList } from "../generalFunctions.js";
+import { receiveDataDepartment } from "./receiveDataCommonUser.js";
 
 function createUserPageInfo({ username, email, professional_level , kind_of_work }) {
     let section = createElementWithClassList('section','c-user__info');
@@ -13,8 +14,12 @@ function createUserPageInfo({ username, email, professional_level , kind_of_work
 
     noun.innerText = username;
     electronicAddress.innerText = `Email: ${email}`;
-    job.innerText = professional_level;
-    modalityWork.innerText = kind_of_work;
+    if (professional_level !== null) {
+        job.innerText = professional_level[0].toUpperCase() + professional_level.substring(1);
+    }
+    if (kind_of_work !== null) {
+        modalityWork.innerText = kind_of_work[0].toUpperCase() + kind_of_work.substring(1);
+    }
     btnImg.src = `../../assets/pencil_mainColor.svg`;
     btnEdit.onclick = () => console.log(`Fui clicado`);
 
@@ -45,15 +50,16 @@ function createUserStatusEmpty() {
 }
 
 
-function createUserStatusFull({ name , description , users }) {
+function createUserStatusFull({ description , users }, nameCompany) {
     let section = createElementWithClassList('section','c-user__status c-user__status--full');
     let companyAndDepartmentName = document.createElement('h2');
     let coworkersList = createElementWithClassList('ul','c-listWorkers');
-
-    companyAndDepartmentName.innerText = `${name} - ${description}`;
+    companyAndDepartmentName.innerText = `${nameCompany} - ${description}`;
     users.forEach(el => {
         let worker = createWorkerCard(el);
-        coworkersList.append(worker);
+        if (worker !== undefined) {
+            coworkersList.append(worker);
+        }
     });
 
     section.append(companyAndDepartmentName, coworkersList);
@@ -67,7 +73,7 @@ function createWorkerCard({ username, professional_level }) {
     let laborer = createElementWithClassList('li','c-worker');
     let laborerName = createElementWithClassList('h4','c-worker__name');
     let laborerJob = createElementWithClassList('p','c-worker__job');
-
+    if (professional_level === null) {return};
     laborerName.innerText = username;
     laborerJob.innerText = professional_level[0].toUpperCase() + professional_level.substring(1);
 
@@ -78,16 +84,24 @@ function createWorkerCard({ username, professional_level }) {
 }
 
 
-function insertUserStatus(companyInfo) {
+function insertUserStatus(companyInfo, type, nameCompany) {
     let main = document.querySelector('main');
-    let userStatus = createUserStatusFull(companyInfo); /* Preciso fazer a identificação para saber quando vem vazio */
+    let userStatus = [];
+    type === 'full' ? userStatus = createUserStatusFull(companyInfo, nameCompany) : userStatus = createUserStatusEmpty();
     main.append(userStatus);
 }
 
 
-
+function verifyUserWorkStatus({department_uuid}) {
+    if (department_uuid === null) {
+        insertUserStatus(department_uuid, `empty`);
+    } else {
+        receiveDataDepartment(department_uuid);
+    }
+}
 
 export { 
     insertHeader,
-    insertUserStatus 
+    insertUserStatus,
+    verifyUserWorkStatus 
 }

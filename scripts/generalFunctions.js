@@ -48,8 +48,34 @@ function goToSignUp() {
     window.location.href = `/pages/signup`;
 }
 
+function goToControl() {
+    window.location.href = `/pages/control`;
+}
+
+function getUserData() {
+    let inputs = document.querySelectorAll('.js-user__data');
+    let empty = false;
+    let vessel = Array.from(inputs).filter(el => el.tagName === 'INPUT');
+    let receptacles = Array.from(inputs).filter(el => el.tagName === 'SELECT');
+    vessel.forEach(el => {if (el.value === "") {empty = true}});
+    if (empty) {return};
+    let user = {};
+    inputs.forEach(el => user[el.name] = el.value);
+    receptacles.forEach(el => {
+        if (el !== undefined && el.value === "") {
+            if (el.name === "professional_level") {
+                delete user.professional_level;
+            } else
+            if (el.name === "kind_of_work") {
+                delete user.kind_of_work;
+            }
+        }
+    });
+    return user
+}
 
 export {
+    goToControl,
     goToSignUp,
     goToLogin,
     goToHome,
@@ -57,5 +83,6 @@ export {
     stopDefaultBehaviorForm,
     createElementWithClassList,
     createOptionWithNameAndValue,
-    createInputWithAllYouNeed
+    createInputWithAllYouNeed,
+    getUserData
 }

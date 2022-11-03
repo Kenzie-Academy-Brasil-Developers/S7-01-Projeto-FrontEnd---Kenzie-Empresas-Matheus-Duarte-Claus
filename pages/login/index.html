@@ -33,9 +33,9 @@
             <form>
                 <h1>Login</h1>
                 <p>Preencha os campos para realizar login</p>
-                <input type="email" placeholder="Seu e-mail">
-                <input type="password" placeholder="Sua senha">
-                <button class="u-btn--mainColor">Login</button>
+                <input type="email" name="email" placeholder="Seu e-mail" class="js-user__data">
+                <input type="password" name="password" placeholder="Sua senha" class="js-user__data">
+                <button class="u-btn--mainColor" onclick="sendLoginUserTo()">Login</button>
                 <p class="u-textCenter">ou</p>
                 <button class="u-btn--whiteMainColor" onclick="goToSignUp()">Cadastre-se</button>
             </form>

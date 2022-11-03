@@ -17,6 +17,7 @@
     margin-right: 15px;
     margin-left: 15px;
     background-color: var(--grey800);
+    height: max-content;
 }
 
 .c-worker__name {
