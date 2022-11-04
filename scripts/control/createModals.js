@@ -17,7 +17,7 @@ function createModalManageUsers({ name , description, companies, uuid }, arrayUs
     let select = selectUserFromModalViewDepartment(arrayUsersNotHired, `Selecionar usuário`, "user_uuid");
     let btnHire = createElementWithClassList('button','c-modal__btnHire u-btn--success');
     let listOfEmployeesInThisDepartment = createUsersHiredList(arrayUsersWorkingInThisDepartment); //Aqui preciso criar a função para passar dinamicamente a lista de funcionários deste departamento
-    let inputDepartmentHide = createInputWithAllYouNeed('input', 'text', '', "department_uuid", "", "js-modal__vessel u-displayNone");
+    let inputDepartmentHide = createInputWithAllYouNeed('input', 'text', '', "department_uuid", "", "js-modal__vessel u-displayNone js-uuid__department");
 
     inputDepartmentHide.value = uuid;
     companyName.innerText = companies.name;

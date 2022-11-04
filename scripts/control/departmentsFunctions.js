@@ -102,6 +102,8 @@ async function hireUser(name) {
         insertTooltip('success', `O usuário foi adicionado ao departamento ${name}`);
         let unemployedList = await receiveUnplacedUsersList();
         updateJoblessList(unemployedList);
+        let idCompany = document.querySelector('.js-uuid__department').value;
+        receiveAllData('only', idCompany);
     }
 }
 
