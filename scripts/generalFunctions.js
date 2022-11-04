@@ -92,9 +92,12 @@ function insertTooltip(type, text) {
 
     tooltip.append(info);
     document.body.append(tooltip);
+    setTimeout(() => {
+        document.querySelector(".c-tooltip").classList.add('u-tooltipBye')
+    }, 3000);
     setTimeout(()=> {
         document.querySelector(".c-tooltip").remove()
-    }, 4000)
+    }, 4000);
 }
 
 

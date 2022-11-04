@@ -2,6 +2,7 @@ import { createElementWithClassList , createOptionWithNameAndValue } from "../ge
 import { insertModal } from "./createModals.js";
 import { selectThisSector } from "./departmentsFunctions.js";
 import { arrayModalities, arrayProfessionalLevels } from "../generalData.js";
+import { receiveAllData } from "./receiveDataAdmin.js"; 
 
 function createDepartment({ name , description, companies, uuid }) {
     let card = createElementWithClassList('li','c-department u-el');
@@ -23,7 +24,7 @@ function createDepartment({ name , description, companies, uuid }) {
     imgEdit.src = `../../assets/pencil_black.svg`;
     imgDelete.src = `../../assets/trash.svg`;
 
-    btnEye.onclick = () => console.log('sou btn view');
+    btnEye.onclick = () => receiveAllData('just', uuid);
     btnEdit.onclick = () => insertModal(`editDepartment`, uuid, description);
     btnDelete.onclick = () => insertModal(`deleteDepartment`, uuid, name);
 

@@ -1,4 +1,5 @@
 .c-tooltip {
+    animation: fadein 1s forwards;
     width: max-content;
     height: max-content;
     display: flex;
@@ -24,4 +25,8 @@
 
 .u-alert {
     background-color: var(--alert-color);
+}
+
+.u-tooltipBye {
+    animation: fadeout 0.5s forwards;
 }

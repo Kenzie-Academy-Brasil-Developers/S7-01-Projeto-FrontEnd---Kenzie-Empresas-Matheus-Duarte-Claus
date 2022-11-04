@@ -1,7 +1,8 @@
 import { baseURL } from "../generalData.js";
 import { insertDataOnPageAdmin, insertUsers, insertDepartments } from "./createAdminPage.js";
+import { insertModal, updateUsersAlreadyHiredList } from "./createModals.js";
 
-async function receiveAllData(typeRender) {
+async function receiveAllData(typeRender, identifier) {
     let listAdminToRender = [];
     const token = localStorage.getItem("@token");
 
@@ -39,7 +40,7 @@ async function receiveAllData(typeRender) {
         const arrayAllUsers = [...responseAllUsers];
         listAdminToRender.push(arrayAllUsers);
     } catch {} finally {
-        let arrayUsersWithId = fuseUserWithCompany(listAdminToRender[0],listAdminToRender[1],listAdminToRender[2])
+        let arrayUsersWithId = fuseUserWithCompany(listAdminToRender[0],listAdminToRender[1],listAdminToRender[2]);
         if (typeRender === `all`) {
             insertDataOnPageAdmin(listAdminToRender[0],listAdminToRender[1], arrayUsersWithId);
         } else 
@@ -48,10 +49,19 @@ async function receiveAllData(typeRender) {
         } else 
         if (typeRender === 'attribute') {
             insertDepartments(listAdminToRender[1]);
+        } else
+        if (typeRender === 'just') {
+            let usersFiltered = arrayUsersWithId.filter(({department_uuid}) => department_uuid === identifier);
+            let unemployedList = await receiveUnplacedUsersList();
+            let departmentFiltered = listAdminToRender[1].find(({uuid}) => uuid === identifier);
+            insertModal(`viewDepartment`, departmentFiltered, unemployedList, usersFiltered);
+        } else
+        if (typeRender === 'only') {
+            let usersFiltered = arrayUsersWithId.filter(({department_uuid}) => department_uuid === identifier);
+            updateUsersAlreadyHiredList(usersFiltered);
         }
         
     }
-
 }
 
 
@@ -62,15 +72,8 @@ function fuseUserWithCompany(listCompanies, listDepartments, listUsers) {
         el.idBusiness = idCompany;
         return el 
     });
-    let usersHired = [];
-    let notHiredListUsers = [];
-    listUsers.forEach((el) => {
-        if (el.department_uuid !== null) {
-            usersHired.push(el);
-        } else {
-            notHiredListUsers.push(el);
-        }
-    });
+    let usersHired = listUsers.filter(el => el.department_uuid !== null); 
+    let notHiredListUsers = listUsers.filter(el => el.department_uuid === null);
     let usersWithIdCompany = usersHired.map(el => {
         departmentsWithIdCompany.forEach(({uuid, idBusiness}) => {
             if (el.department_uuid === uuid) {
@@ -92,7 +95,25 @@ function fuseUserWithCompany(listCompanies, listDepartments, listUsers) {
 }
 
 
+async function receiveUnplacedUsersList() {
+    let usersJoblessList = [];
+    const token = localStorage.getItem("@token");
+    try {
+        const requestOutOfWorkUsers = await fetch(`${baseURL}/admin/out_of_work`, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${token}`
+            }
+        });
+        const responseOutOfWorkUsers = await requestOutOfWorkUsers.json();
+        usersJoblessList = [...responseOutOfWorkUsers];
+    } catch {}
+
+    return usersJoblessList
+}
 
 export {
-    receiveAllData
+    receiveAllData,
+    receiveUnplacedUsersList
 }

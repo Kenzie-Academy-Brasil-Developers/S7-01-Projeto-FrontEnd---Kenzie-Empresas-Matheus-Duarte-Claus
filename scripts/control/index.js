@@ -7,4 +7,3 @@ import { updateOwnProfile } from "./sendUserPage.js";
 verifyLogin();
 window.logout = logout;
 window.updateOwnProfile = updateOwnProfile
-

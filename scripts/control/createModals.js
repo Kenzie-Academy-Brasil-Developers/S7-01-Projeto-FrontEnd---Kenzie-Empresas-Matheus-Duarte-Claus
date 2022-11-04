@@ -2,9 +2,35 @@ import { createElementWithClassList , createOptionWithNameAndValue , stopDefault
 import { updateOwnProfile } from "./sendUserPage.js";
 import { deleteUserDataAPI, updateUserOfficeAPI } from "./usersFunctions.js";
 import { deleteThisDepartment, editThisDepartment, createDepartment } from "./departmentsFunctions.js";
+import { dismissUser } from "./usersFunctions.js";
 
-function createModalManageUsers() {
- //Depois eu faço 🔴🔴🔴🔴🔴🔴🔴🔴
+function createModalManageUsers({ name , description, companies, uuid }, arrayUsersNotHired, arrayUsersWorkingInThisDepartment) {
+    let modal = createElementWithClassList('form','c-modal__managementUsers');
+    let btnCloseModal = createBtnCloseModal();
+    let departmentName = createElementWithClassList('h2','c-modal__department--name');
+    let containerDepartmentAndUsersInfo = createElementWithClassList('div','c-modal__department--options');
+    let containerDepartmentInfo = createElementWithClassList('div','c-modal__department--info');
+    let descriptionDepartment = createElementWithClassList('h3','c-modal__department--description');
+    let companyName = createElementWithClassList('h4','c-modal__company--owner');
+    let containerSelection = createElementWithClassList('div','c-modal__selectUser');
+    let select = selectUserFromModalViewDepartment(arrayUsersNotHired, `Selecionar usuário`, "user_uuid");
+    let btnHire = createElementWithClassList('button','c-modal__btnHire u-btn--success');
+    let listOfEmployeesInThisDepartment = createUsersHiredList(arrayUsersWorkingInThisDepartment); //Aqui preciso criar a função para passar dinamicamente a lista de funcionários deste departamento
+
+    companyName.innerText = companies.name;
+    descriptionDepartment.innerText = description;
+    departmentName.innerText = name;
+    btnHire.innerText = `Contratar`;
+
+    btnHire.onclick = () => console.log('clicou no contratar uuid do departamento') 
+
+    containerDepartmentInfo.append(descriptionDepartment, companyName);
+    containerSelection.append(select, btnHire);
+    containerDepartmentAndUsersInfo.append(containerDepartmentInfo, containerSelection);
+    modal.append(btnCloseModal, departmentName, containerDepartmentAndUsersInfo, listOfEmployeesInThisDepartment)
+
+    return modal
+
 }
 
 function createModalMakeDepartment(arrayCompanies) {
@@ -126,8 +152,55 @@ function createModalEditProfile(name, email) {
     return modal
 }
 
+function createUsersHiredList(array) {
+    let list = createElementWithClassList('ul','c-users__list--hired js-users__list--hired');
+    array.forEach(employee => {
+        let card = createCardUsersHiredList(employee);
+        list.append(card);
+    });
+    return list
+}
 
-function selectModalEditUser(array, orientation, str, value, name) {
+function createCardUsersHiredList({department_uuid, username, company_name, professional_level, uuid}) {
+    let card = createElementWithClassList('li','c-modal__user u-el');
+    let cardUsername = createElementWithClassList('h4','c-modal--user__name u-name');
+    let cardDescription = createElementWithClassList('legend','c-modal--user__description u-description');
+    let cardCompany = createElementWithClassList('legend','c-modal--user__company u-company');
+    let containerBtns = createElementWithClassList('div','u-list__btns');
+    let btnDelete = createElementWithClassList('button','u-btn--whiteAlertColor');
+
+    cardUsername.innerText = username;
+    cardDescription.innerText = professional_level;
+    if (professional_level !== null) {
+        cardDescription.innerText = professional_level[0].toUpperCase() + professional_level.substring(1);
+    }
+    cardCompany.innerText = company_name;
+    btnDelete.innerText = `Desligar`;
+
+    btnDelete.onclick = () => dismissUser(uuid, department_uuid);
+
+    containerBtns.append(btnDelete);
+    card.append(cardUsername, cardDescription, cardCompany, containerBtns);
+
+    return card
+}
+
+function selectUserFromModalViewDepartment(array, orientation, name) {
+    let select = createElementWithClassList('select','u-select-default c-selectUnemployedUsers js-modal__vessel');
+    let instructions = createElementWithClassList('option','u-displayNone');
+    instructions.value = "";
+    instructions.innerText = orientation; 
+    select.name = name;
+    select.append(instructions);
+    array.forEach(({username, uuid}) => {
+        let option = createOptionWithNameAndValue(username, uuid);
+        select.append(option);
+    });
+    return select
+}
+
+
+function selectModalEditUser(array, orientation, name) {
     let select = createElementWithClassList('select','u-select-default js-modal__vessel');
     let instructions = createElementWithClassList('option','u-displayNone');
     instructions.value = "";
@@ -186,7 +259,14 @@ function closeModal() {
 
 }
 
-
+function updateUsersAlreadyHiredList(array) {
+    let container = document.querySelector(".c-modal__managementUsers");
+    let ancientList = document.querySelector(".js-users__list--hired");
+    ancientList.remove();
+    let currentList = createUsersHiredList(array);
+    container.append(currentList);
+    stopDefaultBehaviorForm();
+}
 
 function insertModal(type, arg1, arg2, arg3) {
     let modalContainer = createElementWithClassList('div','c-modalWrapper');
@@ -216,6 +296,10 @@ function insertModal(type, arg1, arg2, arg3) {
             modal = createModalMakeDepartment(arg1);
             break
 
+        case `viewDepartment`:
+            modal = createModalManageUsers(arg1, arg2, arg3);
+            break
+
         default: 
             console.error("Nenhuma opção válida foi selecionada");
             break
@@ -230,5 +314,6 @@ function insertModal(type, arg1, arg2, arg3) {
 
 export {
     insertModal,
-    closeModal
+    closeModal,
+    updateUsersAlreadyHiredList
 }

@@ -43,7 +43,25 @@ async function updateUserOfficeAPI(identifier) {
     }
 }
 
+async function dismissUser(identifierUser, idDepartment) {
+    const token = localStorage.getItem("@token");
+    try {
+        const requestDemit = await fetch(`${baseURL}/departments/dismiss/${identifierUser}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${token}`
+            }
+        });
+        const responseDemit = await requestDemit.json();
+    } catch {} finally {
+        insertTooltip('success', `Usuário demitido com sucesso`);
+        receiveAllData('only', idDepartment);
+    }
+}
+
 export {
     deleteUserDataAPI,
-    updateUserOfficeAPI
+    updateUserOfficeAPI,
+    dismissUser
 }

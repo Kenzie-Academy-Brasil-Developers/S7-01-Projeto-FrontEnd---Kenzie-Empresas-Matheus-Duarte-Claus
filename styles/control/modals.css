@@ -1,4 +1,5 @@
 .c-modalWrapper {
+    animation: fadein 1s forwards;
     height: 100%;
     width: 100%;
     background-color: var(--brand-color300); 
@@ -122,8 +123,21 @@
     flex-direction: column;
 }
 
+.u-fadeout {
+    animation: fadeout 0.5s forwards;
+}
+
+
+.c-modalWrapper > form {
+    animation: fadein 0.5s forwards;
+}
+
 .c-users__list--hired::-webkit-scrollbar {
     width: 10px;
+}
+
+.c-selectUnemployedUsers {
+    width: 350px;
 }
 
 .c-users__list--hired::-webkit-scrollbar-thumb:not(:hover) {   
