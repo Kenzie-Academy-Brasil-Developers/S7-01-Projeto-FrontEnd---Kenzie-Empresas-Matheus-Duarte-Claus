@@ -3,6 +3,8 @@ import { closeModal } from "./createModals.js";
 import { insertTooltip } from "../generalFunctions.js";
 import { receiveAllData } from "./receiveDataAdmin.js";
 import { getDataFromPageAdmin } from "./getDataFromPage.js";
+import { updateJoblessList } from "./createModals.js";
+import { receiveUnplacedUsersList } from "./receiveDataAdmin.js";
 
 async function deleteUserDataAPI(identifier) {
     const token = localStorage.getItem("@token");
@@ -57,6 +59,8 @@ async function dismissUser(identifierUser, idDepartment) {
     } catch {} finally {
         insertTooltip('success', `Usuário demitido com sucesso`);
         receiveAllData('only', idDepartment);
+        let unemployedList = await receiveUnplacedUsersList();
+        updateJoblessList(unemployedList);
     }
 }
 
