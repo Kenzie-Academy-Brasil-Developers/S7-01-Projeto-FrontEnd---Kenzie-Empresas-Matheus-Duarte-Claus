@@ -42,10 +42,10 @@
 
 .u-list__btns {
    display: flex;
-   gap: 20px;
+   gap: 1.25rem;
    align-items: center;
    justify-content: center;
-   margin-bottom: 20px;
+   margin-bottom: 1.25rem;
 }
 
 .u-list__btns > button {
@@ -53,7 +53,7 @@
 }
 
 .u-list::-webkit-scrollbar {
-    width: 10px;
+    width: 0.625rem;
 }
 
 .u-list::-webkit-scrollbar-thumb:not(:hover) {   

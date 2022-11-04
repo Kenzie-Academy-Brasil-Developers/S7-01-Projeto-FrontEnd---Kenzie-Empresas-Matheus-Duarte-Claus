@@ -1,8 +1,8 @@
 .c-listWorkers {
     display: flex;
     flex-wrap: wrap;
-    padding: 60px;
-    height: 250px;
+    padding: 3.75rem;
+    height: 15.625rem;
     overflow-y: scroll;
 }
 
@@ -10,12 +10,12 @@
     border: var(--border-default) var(--brand-color100);
     display: flex;
     flex-direction: column;
-    gap: 14px;
-    padding: 12px 24px;
-    width: 270px;
-    margin-bottom: 13px;
-    margin-right: 15px;
-    margin-left: 15px;
+    gap: 0.875rem;
+    padding: 0.75rem 1.5rem;
+    width: 16.875rem;
+    margin-bottom: 0.8125rem;
+    margin-right: 0.9375rem;
+    margin-left: 0.9375rem;
     background-color: var(--grey800);
     height: max-content;
 }
@@ -35,7 +35,7 @@
 }
 
 .c-listWorkers::-webkit-scrollbar {
-    width: 10px;
+    width: 0.625rem;
 }
 
 .c-listWorkers::-webkit-scrollbar-thumb:not(:hover) {   

@@ -59,7 +59,7 @@ async function receiveAllData(typeRender, identifier) {
         if (typeRender === 'only') {
             let usersFiltered = arrayUsersWithId.filter(({department_uuid}) => department_uuid === identifier);
             updateUsersAlreadyHiredList(usersFiltered);
-        }
+        } 
         
     }
 }
@@ -113,7 +113,28 @@ async function receiveUnplacedUsersList() {
     return usersJoblessList
 }
 
+async function receiveSectors() {
+    let sectors = [];
+    try {
+        const requestSectors = await fetch(`${baseURL}/sectors`, {
+            method: "GET",
+            headers: {
+                "Content-Type": "applications/json"
+            }
+        });
+        const responseSectors = await requestSectors.json();
+        const arraySectors = [...responseSectors];
+        sectors = arraySectors;
+    } catch {} finally {
+        insertModal(`registryCompany`, sectors);
+        return sectors
+    }
+}
+
+
+
 export {
     receiveAllData,
-    receiveUnplacedUsersList
+    receiveUnplacedUsersList,
+    receiveSectors
 }

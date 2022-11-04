@@ -1,6 +1,6 @@
 .c-user__info {
     border: var(--border-default) var(--grey400);
-    padding: 20px 30px;
+    padding: 1.25rem 1.875rem;
 }
 
 .c-user__status {
@@ -8,13 +8,13 @@
 }
 
 .c-user__status--empty {
-    height: 460px;
+    height: 28.75rem;
     border: var(--border-default) var(--grey900);
 }
 
 .c-user__status--full > h2 {
     background-color: var(--brand-color100);
-    height: 80px;
+    height: 5rem;
 }
 
 .c-btn-add {

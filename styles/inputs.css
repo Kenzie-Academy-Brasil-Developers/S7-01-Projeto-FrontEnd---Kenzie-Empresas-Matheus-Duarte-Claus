@@ -9,16 +9,16 @@ textarea {
     resize: none;
     color: var(--grey100);
     border: var(--border-default) var(--grey300);
-    padding: 17px;
-    height: 110px;
+    padding: 1.0625rem;
+    height: 6.875rem;
     outline: none;
 }
 
 input {
     color: var(--grey100);
     border: var(--border-default) var(--grey300);
-    height: 40px;
-    padding-left: 17px;
+    height: 2.5rem;
+    padding-left: 1.0625rem;
 }
 
 input::placeholder, textarea::placeholder {
@@ -27,15 +27,15 @@ input::placeholder, textarea::placeholder {
 
 .u-select-default {
     border: var(--border-default) var(--grey300);
-    padding-left: 17px;
+    padding-left: 1.0625rem;
     color: var(--grey200);
-    height: 44.5px;
+    height: 2.78125rem;
 }
 
 .c-select__company {
     border: var(--border-default) var(--grey100);
     color: var(--grey100);
     border-radius: var(--radius-2);
-    padding: 4px 33px;
+    padding: 0.25rem 2.0625rem;
 }
 

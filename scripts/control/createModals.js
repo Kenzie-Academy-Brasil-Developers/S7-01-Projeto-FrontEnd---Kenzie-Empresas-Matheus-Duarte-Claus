@@ -1,8 +1,9 @@
 import { createElementWithClassList , createOptionWithNameAndValue , stopDefaultBehaviorForm , createInputWithAllYouNeed } from "../generalFunctions.js";
 import { updateOwnProfile } from "./sendUserPage.js";
 import { deleteUserDataAPI, updateUserOfficeAPI } from "./usersFunctions.js";
-import { deleteThisDepartment, editThisDepartment, createDepartment } from "./departmentsFunctions.js";
+import { deleteThisDepartment, editThisDepartment, createDepartment, hireUser } from "./departmentsFunctions.js";
 import { dismissUser } from "./usersFunctions.js";
+import { sendCompany } from "./companyFunctions.js";
 
 function createModalManageUsers({ name , description, companies, uuid }, arrayUsersNotHired, arrayUsersWorkingInThisDepartment) {
     let modal = createElementWithClassList('form','c-modal__managementUsers');
@@ -16,18 +17,20 @@ function createModalManageUsers({ name , description, companies, uuid }, arrayUs
     let select = selectUserFromModalViewDepartment(arrayUsersNotHired, `Selecionar usuário`, "user_uuid");
     let btnHire = createElementWithClassList('button','c-modal__btnHire u-btn--success');
     let listOfEmployeesInThisDepartment = createUsersHiredList(arrayUsersWorkingInThisDepartment); //Aqui preciso criar a função para passar dinamicamente a lista de funcionários deste departamento
+    let inputDepartmentHide = createInputWithAllYouNeed('input', 'text', '', "department_uuid", "", "js-modal__vessel u-displayNone");
 
+    inputDepartmentHide.value = uuid;
     companyName.innerText = companies.name;
     descriptionDepartment.innerText = description;
     departmentName.innerText = name;
     btnHire.innerText = `Contratar`;
 
-    btnHire.onclick = () => console.log('clicou no contratar uuid do departamento') 
+    btnHire.onclick = () => hireUser(name);
 
     containerDepartmentInfo.append(descriptionDepartment, companyName);
-    containerSelection.append(select, btnHire);
+    containerSelection.append(select, btnHire, inputDepartmentHide);
     containerDepartmentAndUsersInfo.append(containerDepartmentInfo, containerSelection);
-    modal.append(btnCloseModal, departmentName, containerDepartmentAndUsersInfo, listOfEmployeesInThisDepartment)
+    modal.append(btnCloseModal, departmentName, containerDepartmentAndUsersInfo, listOfEmployeesInThisDepartment);
 
     return modal
 
@@ -89,6 +92,29 @@ function createModalEditSomeUser(arrayModalities, arrayProfessionalLevel, uuid) 
     btnEdit.onclick = () => updateUserOfficeAPI(uuid);
 
     containerInputs.append(title, selectModality, selectProfessionalLevel, btnEdit);
+    modal.append(btnCloseModal, containerInputs);
+
+    return modal 
+
+}
+
+
+function createModalRegistryCompany(sectors, uuid) {
+    let modal = createElementWithClassList('form','c-modal__small');
+    let btnCloseModal = createBtnCloseModal();
+    let containerInputs = createElementWithClassList('div','c-modal__inputs');
+    let title = createElementWithClassList('h2','c-modal__department--name');
+    let selectSector = selectModalSectors(sectors, `Selecionar um setor`, "sector_uuid", "sector_uuid", "sector_uuid");
+    let btnSave = createElementWithClassList('button','u-btn--mainColor');
+    let inputName = createInputWithAllYouNeed('input', 'text', 'Digite o nome da sua empresa', "name", "", "js-modal__vessel");
+    let inputTime = createInputWithAllYouNeed('input', 'text', 'Coloque o horário de abertura da sua empresa', "opening_hours", "", "js-modal__vessel");
+    let inputDescription = createInputWithAllYouNeed('input', 'text', 'Escreva uma descrição da sua empresa', "description", "", "js-modal__vessel");
+
+    btnSave.innerText = `Registrar`;
+    title.innerText = `Cadastrar empresa`;
+    btnSave.onclick = () => sendCompany();
+
+    containerInputs.append(title, inputName, inputTime, inputDescription, selectSector, btnSave);
     modal.append(btnCloseModal, containerInputs);
 
     return modal 
@@ -189,7 +215,11 @@ function selectUserFromModalViewDepartment(array, orientation, name) {
     let select = createElementWithClassList('select','u-select-default c-selectUnemployedUsers js-modal__vessel');
     let instructions = createElementWithClassList('option','u-displayNone');
     instructions.value = "";
-    instructions.innerText = orientation; 
+    if (array.length > 0) {
+        instructions.innerText = orientation; 
+    } else {
+        instructions.innerText = `Não há usuários disponíveis`; 
+    }
     select.name = name;
     select.append(instructions);
     array.forEach(({username, uuid}) => {
@@ -214,6 +244,21 @@ function selectModalEditUser(array, orientation, name) {
         }
         txt = txt[0].toUpperCase() + txt.substring(1);
         let option = createOptionWithNameAndValue(txt, el);
+        select.append(option);
+    });
+    return select
+}
+
+
+function selectModalSectors(array, orientation, name) {
+    let select = createElementWithClassList('select','u-select-default js-modal__vessel');
+    let instructions = createElementWithClassList('option','u-displayNone');
+    instructions.value = "";
+    instructions.innerText = orientation; 
+    select.name = name;
+    select.append(instructions);
+    array.forEach(({description, uuid}) => {
+        let option = createOptionWithNameAndValue(description, uuid);
         select.append(option);
     });
     return select
@@ -268,6 +313,14 @@ function updateUsersAlreadyHiredList(array) {
     stopDefaultBehaviorForm();
 }
 
+function updateJoblessList(array) {
+    let container = document.querySelector(".c-modal__selectUser");
+    let ancientList = document.querySelector(".c-selectUnemployedUsers");
+    ancientList.remove();
+    let currentList = selectUserFromModalViewDepartment(array, `Selecionar usuário`, "user_uuid");
+    container.insertAdjacentElement("afterbegin", currentList);
+}
+
 function insertModal(type, arg1, arg2, arg3) {
     let modalContainer = createElementWithClassList('div','c-modalWrapper');
     let modal = []
@@ -300,6 +353,10 @@ function insertModal(type, arg1, arg2, arg3) {
             modal = createModalManageUsers(arg1, arg2, arg3);
             break
 
+        case `registryCompany`:
+            modal = createModalRegistryCompany(arg1);
+            break
+            
         default: 
             console.error("Nenhuma opção válida foi selecionada");
             break
@@ -315,5 +372,6 @@ function insertModal(type, arg1, arg2, arg3) {
 export {
     insertModal,
     closeModal,
+    updateJoblessList,
     updateUsersAlreadyHiredList
 }

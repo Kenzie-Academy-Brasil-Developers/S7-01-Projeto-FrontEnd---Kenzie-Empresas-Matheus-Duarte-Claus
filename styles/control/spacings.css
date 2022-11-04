@@ -1,23 +1,23 @@
 body {
-    margin-bottom: 80px;
+    margin-bottom: 5rem;
 }
 
 main {
-    gap: 44px;
+    gap: 2.75rem;
 }
 
 .c-user__description {
-    gap: 10px;
+    gap: 0.625rem;
 }
 
 .c-user__data {
-    gap: 150px;
+    gap: 9.375rem;
 }
 
 .c-btn-add {
-    gap: 15px;
+    gap: 0.9375rem;
 }
 
 .c-departments__head {
-    margin-bottom: 20px;
+    margin-bottom: 1.25rem;
 }

@@ -4,8 +4,8 @@
 
 .c-img__main {
     object-fit: cover;
-    width: 550px;
-    height: 740px;
+    width: 34.375rem;
+    height: 46.25rem;
 }
 
 main {
@@ -13,7 +13,7 @@ main {
     justify-content: space-between;
 }
 
-@media(min-width:900px) {
+@media(min-width:56.25rem) {
     .c-img__main {
         display: inherit;
     }

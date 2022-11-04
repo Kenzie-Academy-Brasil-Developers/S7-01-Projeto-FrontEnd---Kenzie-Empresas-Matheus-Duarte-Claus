@@ -133,11 +133,11 @@
 }
 
 .c-users__list--hired::-webkit-scrollbar {
-    width: 10px;
+    width: 0.625rem;
 }
 
 .c-selectUnemployedUsers {
-    width: 350px;
+    width: 21.875rem;
 }
 
 .c-users__list--hired::-webkit-scrollbar-thumb:not(:hover) {   

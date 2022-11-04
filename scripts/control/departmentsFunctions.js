@@ -1,8 +1,8 @@
 import { baseURL } from "../generalData.js";
 import { insertDepartments } from "./createAdminPage.js";
 import { insertTooltip } from "../generalFunctions.js";
-import { closeModal } from "./createModals.js";
-import { receiveAllData } from "./receiveDataAdmin.js";
+import { closeModal, updateJoblessList } from "./createModals.js";
+import { receiveAllData, receiveUnplacedUsersList } from "./receiveDataAdmin.js";
 import { getDataFromPageAdmin } from "./getDataFromPage.js";
 
 async function selectThisSector(uuid) {
@@ -84,9 +84,32 @@ async function createDepartment() {
     }
 }
 
+async function hireUser(name) {
+    const token = localStorage.getItem("@token");
+    let infoToInsert = getDataFromPageAdmin();
+    if (infoToInsert === undefined) {return};
+    try {
+        const requestHireUser = await fetch(`${baseURL}/departments/hire`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${token}`
+            },
+            body: JSON.stringify(infoToInsert)
+        })
+        const responseHireUser = await requestHireUser.json();
+    } catch {} finally {
+        insertTooltip('success', `O usuário foi adicionado ao departamento ${name}`);
+        let unemployedList = await receiveUnplacedUsersList();
+        updateJoblessList(unemployedList);
+    }
+}
+
+
 export {
     selectThisSector,
     deleteThisDepartment,
     editThisDepartment,
-    createDepartment
+    createDepartment,
+    hireUser
 }

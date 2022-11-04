@@ -21,11 +21,11 @@ h1 {
 }
 
 form {
-    margin-top: 30px;
+    margin-top: 1.875rem;
     display: flex;
     flex-direction: column;
-    gap: 14px;
-    padding: 40px;
+    gap: 0.875rem;
+    padding: 2.5rem;
     background-color: var(--grey700);
     width: 90%;
 }
@@ -35,10 +35,10 @@ form {
     justify-content: center;
 }
 
-@media (min-width: 900px) {
+@media (min-width: 56.25rem) {
     form {
-        margin-top: 140px;
-        width: 500px;
-        margin-bottom: 280px;
+        margin-top: 8.75rem;
+        width: 31.25rem;
+        margin-bottom: 17.5rem;
     }
 }

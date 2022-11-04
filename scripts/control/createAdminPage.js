@@ -2,7 +2,7 @@ import { createElementWithClassList , createOptionWithNameAndValue } from "../ge
 import { insertModal } from "./createModals.js";
 import { selectThisSector } from "./departmentsFunctions.js";
 import { arrayModalities, arrayProfessionalLevels } from "../generalData.js";
-import { receiveAllData } from "./receiveDataAdmin.js"; 
+import { receiveAllData, receiveSectors } from "./receiveDataAdmin.js"; 
 
 function createDepartment({ name , description, companies, uuid }) {
     let card = createElementWithClassList('li','c-department u-el');
@@ -108,15 +108,19 @@ function createHeaderDepartments(arrayCompanies) {
     let btnAdd = createElementWithClassList('button','c-btn-add u-btn--mainColor');
     let btnStr = createElementWithClassList('span','c-btn__name');
     let imgAdd = document.createElement('img');
+    let btnRegistry = createElementWithClassList('button','u-btn--mainColor');
 
     title.innerText = `Departamentos`;
     btnStr.innerText = `Criar`;
+    btnRegistry.innerText = `Cadastrar empresa`;
     imgAdd.src = `../../assets/plus.svg`;
 
     btnAdd.onclick = () => insertModal(`makeDepartment`, arrayCompanies);
+    btnRegistry.onclick = () => receiveSectors(); 
+
 
     btnAdd.append(imgAdd, btnStr);
-    headContainer.append(title, selectCompany, btnAdd);
+    headContainer.append(title, selectCompany, btnRegistry, btnAdd);
 
     return headContainer
 }

@@ -6,10 +6,10 @@
     justify-content: center;
     align-items: center;
     position: fixed;
-    right: 50px;
-    bottom: 50px;
-    padding: 30px 36px;
-    border-radius: 10px;
+    right: 3.125rem;
+    bottom: 3.125rem;
+    padding: 1.875rem 2.25rem;
+    border-radius: 0.625rem;
 }
 
 .c-tooltip__text {
