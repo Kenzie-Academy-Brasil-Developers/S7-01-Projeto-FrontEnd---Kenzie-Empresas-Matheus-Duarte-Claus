@@ -1,4 +1,4 @@
-import { getUserData, goToControl } from "../generalFunctions.js";
+import { getUserData, goToControl, insertTooltip } from "../generalFunctions.js";
 import { baseURL } from "../generalData.js";
 import { checkTypeUser } from "./verificationToken.js";
 
@@ -18,7 +18,10 @@ async function sendLoginUserTo() {
             let token = responseUser.token;
             localStorage.setItem("@token", token);
             await checkTypeUser();
-            goToControl();
+            insertTooltip('success', `Login realizado com sucesso`);
+            setTimeout(() => goToControl(), 1500);
+        } else {
+            insertTooltip('alert', `Usuário ou senha incorretos`);
         }
         //Perguntar pra sofia como deve ser essa mensagem de erro
 

@@ -1,5 +1,5 @@
-import { baseURL } from "../generalData.js";
 import { insertHeader, verifyUserWorkStatus, insertUserStatus } from "./createUserPages.js";
+import { baseURL } from "../generalData.js";
 
 async function receiveUserData() {
     const token = localStorage.getItem("@token");

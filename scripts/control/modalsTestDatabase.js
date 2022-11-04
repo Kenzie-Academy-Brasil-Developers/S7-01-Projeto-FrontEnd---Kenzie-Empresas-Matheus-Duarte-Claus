@@ -298,3 +298,9 @@ let arrayModality = [
   {kind_of_work:"presencial"},
   {kind_of_work:"homeoffice"},
 ]
+
+export {
+  usuarios,
+  departamentos,
+  empresas
+}

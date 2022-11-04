@@ -15,7 +15,7 @@
     border-bottom: var(--border-default) var(--brand-color100);
     margin-bottom: 28px;
     width: 430px;
-    height: max-content;
+    height: 175px;
 }
 
 .u-name, .u-description {

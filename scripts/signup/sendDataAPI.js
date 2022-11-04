@@ -1,7 +1,7 @@
-import { getUserData, goToLogin} from "../generalFunctions.js";
+import { getUserData, goToLogin, insertTooltip} from "../generalFunctions.js";
 import { baseURL } from "../generalData.js";
 
-async function sendSingUpUserTo() {
+async function sendSignUpUserTo() {
     let user = getUserData();
     if (user === undefined) {return};
     try {
@@ -12,13 +12,21 @@ async function sendSingUpUserTo() {
             },
             body: JSON.stringify(user)
         });
+        const responseUser = await requestUser.json();
         if (requestUser.ok) {
-            const responseUser = await requestUser.json();
-            goToLogin();
+            insertTooltip('success', `Usuário criado com sucesso`);
+            setTimeout(() => {
+                goToLogin();
+            }, 1100)
+        } else {
+            let errorDetected = responseUser.error[0];
+            if (errorDetected === 'email alread exists!') {
+                insertTooltip('alert', `Esse e-mail já existe. Tente outro`)
+            }
         }
     } catch {}
 }
 
 export {
-    sendSingUpUserTo
+    sendSignUpUserTo
 }

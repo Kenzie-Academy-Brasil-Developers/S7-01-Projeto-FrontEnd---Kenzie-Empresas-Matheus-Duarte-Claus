@@ -1,5 +1,8 @@
 import { createElementWithClassList } from "../generalFunctions.js";
+import { insertModal } from "./createModals.js";
 import { receiveDataDepartment } from "./receiveDataCommonUser.js";
+import { arrayModalities, arrayProfessionalLevels } from "../generalData.js";
+
 
 function createUserPageInfo({ username, email, professional_level , kind_of_work }) {
     let section = createElementWithClassList('section','c-user__info');
@@ -19,9 +22,12 @@ function createUserPageInfo({ username, email, professional_level , kind_of_work
     }
     if (kind_of_work !== null) {
         modalityWork.innerText = kind_of_work[0].toUpperCase() + kind_of_work.substring(1);
+        if (kind_of_work === 'hibrido') {
+            modalityWork.innerText = "Híbrido";
+        }
     }
     btnImg.src = `../../assets/pencil_mainColor.svg`;
-    btnEdit.onclick = () => console.log(`Fui clicado`);
+    btnEdit.onclick = () => insertModal(`editOwnProfile`, username, email);
 
     userData.append(electronicAddress, job, modalityWork);
     userDescription.append(noun, userData);
@@ -32,11 +38,7 @@ function createUserPageInfo({ username, email, professional_level , kind_of_work
 
 }
 
-function insertHeader(userInfo) {
-    let main = document.querySelector('main');
-    let userDetails = createUserPageInfo(userInfo);
-    main.append(userDetails);
-}
+
 
 
 function createUserStatusEmpty() {
@@ -83,6 +85,11 @@ function createWorkerCard({ username, professional_level }) {
 
 }
 
+function insertHeader(userInfo) {
+    let main = document.querySelector('main');
+    let userDetails = createUserPageInfo(userInfo);
+    main.append(userDetails);
+}
 
 function insertUserStatus(companyInfo, type, nameCompany) {
     let main = document.querySelector('main');

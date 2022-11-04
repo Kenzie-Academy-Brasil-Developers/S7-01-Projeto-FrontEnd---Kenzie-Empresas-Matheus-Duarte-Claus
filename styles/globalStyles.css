@@ -69,6 +69,10 @@
     text-align: center;
 }
 
+.u-stopScroll {
+    overflow-y: hidden;
+}
+
 body {
     font-family: var(--font-family-default);
 }

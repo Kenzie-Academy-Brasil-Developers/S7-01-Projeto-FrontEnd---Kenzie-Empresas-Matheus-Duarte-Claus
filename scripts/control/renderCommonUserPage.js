@@ -1,11 +1,7 @@
 import { receiveUserData } from "./receiveDataCommonUser.js";
 
 function renderCommonUser() {
-    receiveUserData()
-
-
-
-
+    receiveUserData();
 }
 
 export {
