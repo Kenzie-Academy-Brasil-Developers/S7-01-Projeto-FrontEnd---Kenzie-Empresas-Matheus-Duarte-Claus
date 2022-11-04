@@ -1,0 +1,53 @@
+.c-head {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0.9375rem;
+    margin-bottom: 0.9375rem;
+}
+
+.c-logo {
+    display: flex;
+    gap: 0.9375rem;
+    flex-direction: row;
+    align-items: center;
+}
+
+.c-logo__icon {
+    background-color: var(--brand-color200);
+    width: 1rem;
+    height: 1rem;
+    border-radius: var(--radius-4);
+    transform: translateY(-0.125rem);
+}
+
+.c-btnsHead, .c-btnsHeadDesktop  {
+    display: none;
+    gap: 11px;
+    align-items: center;
+}
+
+.u-showMenu {
+    display: flex;
+}
+
+.c-btnsHead > button {
+    width: 100%;
+}
+
+header {
+    margin: 1.25rem;
+}
+
+main {
+    margin-top: 2.6875rem;
+}
+
+@media(min-width:56.25rem) {
+    .c-btn--headIcon {
+        display: none;
+    }
+
+    .c-btnsHeadDesktop {
+        display: flex;
+    }
+}

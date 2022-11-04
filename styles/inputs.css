@@ -1,0 +1,41 @@
+input, input::placeholder, select, textarea, textarea::placeholder {
+    font-family: var(--font-family-default);
+    font-weight: var(--font-weight-2);
+    line-height: var(--line-height-6);
+    font-size: var(--font-size-7);
+}
+
+textarea {
+    resize: none;
+    color: var(--grey100);
+    border: var(--border-default) var(--grey300);
+    padding: 1.0625rem;
+    height: 6.875rem;
+    outline: none;
+}
+
+input {
+    color: var(--grey100);
+    border: var(--border-default) var(--grey300);
+    height: 2.5rem;
+    padding-left: 1.0625rem;
+}
+
+input::placeholder, textarea::placeholder {
+    color: var(--grey200);
+}
+
+.u-select-default {
+    border: var(--border-default) var(--grey300);
+    padding-left: 1.0625rem;
+    color: var(--grey200);
+    height: 2.78125rem;
+}
+
+.c-select__company {
+    border: var(--border-default) var(--grey100);
+    color: var(--grey100);
+    border-radius: var(--radius-2);
+    padding: 0.25rem 2.0625rem;
+}
+

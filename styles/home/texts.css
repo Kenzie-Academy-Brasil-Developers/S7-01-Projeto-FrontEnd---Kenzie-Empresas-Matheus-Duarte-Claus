@@ -1,0 +1,11 @@
+.c-company__name {
+    font-size: var(--font-size-6);
+    font-weight: var(--font-weight-5);
+    color: var(--grey100);
+}
+
+.c-description {
+    font-size: var(--font-size-8);
+    font-weight: var(--font-weight-2);
+    color: var(--grey100);
+}

@@ -1,0 +1,14 @@
+@import url('https://matheuscdd.github.io/coding/CSS_reset.css');
+@import url('../../styles/globalStyles.css');
+@import url('../../styles/buttons.css');
+@import url('../../styles/inputs.css');
+@import url('../../styles/header.css');
+@import url('../../styles/tooltip.css');
+@import url('../../styles/animations.css');
+@import url('./positions.css');
+@import url('./spacings.css');
+@import url('./texts.css');
+@import url('./sizes.css');
+@import url('./workers.css');
+@import url('./lists.css');
+@import url('./modals.css');

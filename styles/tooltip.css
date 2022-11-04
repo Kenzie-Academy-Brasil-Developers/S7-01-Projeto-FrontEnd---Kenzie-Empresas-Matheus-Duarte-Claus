@@ -1,0 +1,32 @@
+.c-tooltip {
+    animation: fadein 1s forwards;
+    width: max-content;
+    height: max-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    right: 3.125rem;
+    bottom: 3.125rem;
+    padding: 1.875rem 2.25rem;
+    border-radius: 0.625rem;
+}
+
+.c-tooltip__text {
+    color: var(--grey800);
+    font-weight: var(--font-weight-5);
+    font-size: var(--font-size-9);
+    list-style: var(--line-height-8);
+}
+
+.u-success {
+    background-color: var(--success-color);
+}
+
+.u-alert {
+    background-color: var(--alert-color);
+}
+
+.u-tooltipBye {
+    animation: fadeout 0.5s forwards;
+}

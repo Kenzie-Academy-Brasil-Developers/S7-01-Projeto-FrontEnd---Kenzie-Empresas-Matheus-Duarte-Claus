@@ -1,0 +1,47 @@
+button {
+    cursor: pointer;
+    font-family: var(--font-family-default);
+    outline: none;
+}
+
+.u-btn--mainColor {
+    background-color: var(--brand-color100);
+    color: var(--grey800);
+    border: var(--border-default) var(--brand-color100);
+}
+
+.u-btn--whiteMainColor {
+    background-color: transparent;
+    color: var(--brand-color100);
+    border: var(--border-default) var(--brand-color100);
+}
+
+.u-btn--whiteAlertColor {
+    background-color: transparent;
+    color: var(--alert-color);
+    border: var(--border-default) var(--alert-color);
+}
+
+.u-btn--success {
+    background-color: var(--success-color);
+    color: var(--grey800);
+    border: var(--border-default) var(--success-color);
+}
+
+.u-btn--icon {
+    background-color: transparent;
+    border: none;
+}
+
+.u-btn--whiteMainColor, .u-btn--mainColor, .u-btn--whiteAlertColor, .u-btn--success {
+    line-height: var(--line-height-6);
+    font-weight: var(--font-weight-5);
+    padding: var(--padding--btn-1);
+    font-size: var(--font-size-7);
+    line-height: var(--line-height-6);
+}
+
+
+
+
+

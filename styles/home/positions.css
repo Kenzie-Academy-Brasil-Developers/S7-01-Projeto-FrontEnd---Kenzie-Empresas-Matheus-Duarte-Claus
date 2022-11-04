@@ -1,0 +1,20 @@
+.c-img__main {
+    display: none;
+}
+
+.c-img__main {
+    object-fit: cover;
+    width: 34.375rem;
+    height: 46.25rem;
+}
+
+main {
+    display: flex;
+    justify-content: space-between;
+}
+
+@media(min-width:56.25rem) {
+    .c-img__main {
+        display: inherit;
+    }
+}

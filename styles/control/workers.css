@@ -1,0 +1,51 @@
+.c-listWorkers {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 3.75rem;
+    height: 15.625rem;
+    overflow-y: scroll;
+}
+
+.c-worker {
+    border: var(--border-default) var(--brand-color100);
+    display: flex;
+    flex-direction: column;
+    gap: 0.875rem;
+    padding: 0.75rem 1.5rem;
+    width: 16.875rem;
+    margin-bottom: 0.8125rem;
+    margin-right: 0.9375rem;
+    margin-left: 0.9375rem;
+    background-color: var(--grey800);
+    height: max-content;
+}
+
+.c-worker__name {
+    font-weight: var(--font-weight-5);
+    font-size: var(--font-size-9);
+    line-height: var(--line-height-8);
+    color: var(--grey100);
+}
+
+.c-worker__job {
+    font-weight: var(--font-weight-2);
+    font-size: var(--font-size-9);
+    line-height: var(--line-height-8);
+    color: var(--grey100);
+}
+
+.c-listWorkers::-webkit-scrollbar {
+    width: 0.625rem;
+}
+
+.c-listWorkers::-webkit-scrollbar-thumb:not(:hover) {   
+    background-color: var(--brand-color100); 
+}
+
+.c-listWorkers::-webkit-scrollbar-thumb:hover {   
+    background-color: var(--brand-color200); 
+}
+
+.c-listWorkers::-webkit-scrollbar-thumb:window-inactive {
+    background: var(--grey400);
+}
