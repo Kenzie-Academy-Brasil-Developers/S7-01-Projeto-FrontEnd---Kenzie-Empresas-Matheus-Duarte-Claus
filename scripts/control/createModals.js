@@ -173,9 +173,17 @@ function createBtnCloseModal() {
 }
 
 function closeModal() {
-    let modalWrapper = document.querySelector(".c-modalWrapper").remove();
-    document.body.classList.remove('u-stopScroll');
-    //Se quiser colocar uma animação para o modal sair tem que ser aqui
+    let modalWrapper = document.querySelector(".c-modalWrapper");
+    let kids = Array.from(modalWrapper.children);
+    kids[0].classList.add('u-fadeout');
+    setTimeout(() => {
+        modalWrapper.classList.add('u-fadeout');
+    },50)
+    setTimeout(() => {
+        modalWrapper.remove();
+        document.body.classList.remove('u-stopScroll');
+    }, 600)
+
 }
 
 
