@@ -12,6 +12,7 @@ async function sendSignUpUserTo() {
             },
             body: JSON.stringify(user)
         });
+        console.log(requestUser)
         const responseUser = await requestUser.json();
         if (requestUser.ok) {
             insertTooltip('success', `Usuário criado com sucesso`);
@@ -21,10 +22,15 @@ async function sendSignUpUserTo() {
         } else {
             let errorDetected = responseUser.error[0];
             if (errorDetected === 'email alread exists!') {
-                insertTooltip('alert', `Esse e-mail já existe. Tente outro`)
+                insertTooltip('alert', `Esse e-mail já existe. Tente outro`);
+            } else if (errorDetected === 'insert a valid email!') {
+                insertTooltip('alert', `Insira um e-mail válido`);
             }
         }
-    } catch {}
+    } catch {
+        insertTooltip('alert', `Ocorreu um erro com seu e-mail`);
+    } finally {
+    }
 }
 
 export {
