@@ -40,7 +40,8 @@ async function receiveAllData(typeRender, identifier) {
         const arrayAllUsers = [...responseAllUsers];
         listAdminToRender.push(arrayAllUsers);
     } catch {} finally {
-        let arrayUsersWithId = fuseUserWithCompany(listAdminToRender[0],listAdminToRender[1],listAdminToRender[2]);
+        let arrayProv = fuseUserWithCompany(listAdminToRender[0],listAdminToRender[1],listAdminToRender[2]);
+        let arrayUsersWithId = arrayProv.filter(({is_admin}) => is_admin === false);
         if (typeRender === `all`) {
             insertDataOnPageAdmin(listAdminToRender[0],listAdminToRender[1], arrayUsersWithId);
         } else 
