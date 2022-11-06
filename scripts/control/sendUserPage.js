@@ -20,7 +20,7 @@ async function updateOwnProfile() {
         if (requestUpdate.ok) {
             closeModal();
             insertTooltip('success', `Edições feitas com sucesso`);
-            setTimeout(() => location.reload(), 5000);
+            setTimeout(() => location.reload(), 1500);
         } else {
             let errorCatch = responseUpdate.error;
             if (errorCatch === 'email alread exists') {
