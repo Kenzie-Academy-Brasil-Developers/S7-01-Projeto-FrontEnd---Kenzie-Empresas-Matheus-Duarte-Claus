@@ -64,9 +64,7 @@ function createUser({ username , professional_level , company_name , id_company,
     let btnDelete = createElementWithClassList('button','u-btn--icon');
     let imgEdit = document.createElement('img');
     let imgDelete = document.createElement('img');
-
-    
-    
+   
     card.dataset.id_user = uuid;
 
     if (company_name !== undefined) {
@@ -81,7 +79,7 @@ function createUser({ username , professional_level , company_name , id_company,
     }
 
     cardName.innerText = username;
-    if (professional_level !== null) {
+    if (typeof professional_level === "string" && professional_level.length > 0) {
         cardJob.innerText = professional_level[0].toUpperCase() + professional_level.substring(1);
     } else {
         cardJob.innerText = "⠀";
